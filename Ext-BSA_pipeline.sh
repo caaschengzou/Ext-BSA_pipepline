@@ -109,7 +109,7 @@ colnames(df2) <- c("SNP", "CHR", "BP", "P")
 
 ## Ext-BSA -- step 4 
 ## Remove replicate and save results
-df2[] <- lapply(df2, function(x) type.convert(as.character(x)))
+df2 <- lapply(df2, function(x) type.convert(as.character(x)))
 final_result <- aggregate(P~CHR+BP, df2, max)
 write.table(final_result, file = ouf_data1, col.names = T, row.names = F, quote = F, sep = "\t")
 
