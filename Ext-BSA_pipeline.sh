@@ -85,13 +85,13 @@ walking <- function(start, step = 5, threshold = threshold0) {
   
   start_score = y[start]
   right = list()
-  right[[1]] = c(start,score)
+  right[[1]] = c(start,start_score)
   i = 1
-  while(score > threshold) {
+  while(start_score > threshold) {
     tinterval = y[(start + step*(i - 1) + 1):(start + step*i)]
-    score = score + sum(tail(sort(tinterval), 2)) - step
+    start_score = start_score + sum(tail(sort(tinterval), 2)) - step
     i = i + 1
-    inp = c(start-step*(i - 1), score)
+    inp = c(start-step*(i - 1), start_score)
     right[[i]] = inp
     
   }
